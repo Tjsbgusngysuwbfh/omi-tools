@@ -12,6 +12,8 @@ AI 驱动的 Windows 效率工具集。由 [Omi](https://github.com/Tjsbgusngysu
 | **quick-menu** | 右键菜单管理 | `.\quick-menu\quick-menu.ps1` |
 | **file-organizer** | 智能文件分类 | `.\file-organizer\file-organizer.ps1` |
 | **sys-health** | 系统健康检查 | `.\sys-health\sys-health.ps1` |
+| **batch-rename** | 批量文件重命名 | `.\batch-rename\batch-rename.ps1` |
+| **disk-clean** | 磁盘空间清理 | `.\disk-clean\disk-clean.ps1` |
 
 ## 🚀 快速开始
 
@@ -23,9 +25,12 @@ cd omi-tools
 # 运行任一工具
 .\cliphist\cliphist.ps1
 .\sys-health\sys-health.ps1
+.\disk-clean\disk-clean.ps1 -DryRun
 ```
 
-## 📋 cliphist - 剪贴板历史管理
+## 📋 工具详解
+
+### cliphist - 剪贴板历史管理
 
 比 Windows 自带的 Win+V 更强大：
 
@@ -37,7 +42,7 @@ cd omi-tools
 .\cliphist.ps1 -Export            # 导出历史
 ```
 
-## 🗂️ file-organizer - 智能文件分类
+### file-organizer - 智能文件分类
 
 一键整理混乱的文件夹：
 
@@ -46,18 +51,31 @@ cd omi-tools
 .\file-organizer.ps1 -Path "C:\Downloads" -Execute   # 执行
 ```
 
-## 🩺 sys-health - 系统健康检查
+### batch-rename - 批量文件重命名
 
-一键检查 CPU、内存、磁盘、网络状态：
+```powershell
+.\batch-rename.ps1 -Path "C:\Photos" -Prefix "旅行_"      # 加前缀
+.\batch-rename.ps1 -Path "C:\Photos" -Replace "IMG","照片" # 替换文字
+.\batch-rename.ps1 -Path "C:\Photos" -Sequence -Start 1   # 序号命名
+.\batch-rename.ps1 -Path "C:\Photos" -Date                 # 日期命名
+```
+
+### disk-clean - 磁盘空间清理
+
+```powershell
+.\disk-clean.ps1 -DryRun      # 预览可清理内容
+.\disk-clean.ps1 -Execute     # 执行清理
+.\disk-clean.ps1 -Deep        # 深度清理
+```
+
+### sys-health - 系统健康检查
 
 ```powershell
 .\sys-health.ps1          # 完整检查
 .\sys-health.ps1 -Quick   # 快速检查
 ```
 
-## 📌 quick-menu - 右键菜单管理
-
-自定义 Windows 右键菜单：
+### quick-menu - 右键菜单管理
 
 ```powershell
 .\quick-menu.ps1 -List                        # 查看菜单
